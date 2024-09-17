@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cci-web-deployment
+  labels:
+    app: cci-web
+spec:
+  replicas: 1  # Number of replicas
+  selector:
+    matchLabels:
+      app: cci-web
+  template:
+    metadata:
+      labels:
+        app: cci-web
+    spec:
+      serviceAccountName: cci-api-sa
+      securityContext:
+        sysctls:
+          - name: net.ipv4.ip_unprivileged_port_start
+            value: '0'
+      containers:
+      - name: cci-web-container
+        image: ${IMAGE_PATH}
+        ports:
+        - containerPort: 3000
+        env:
+          - name: SOME_ENV_VARIABLE
+            value: "some_value"

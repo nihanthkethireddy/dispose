@@ -1,0 +1,10 @@
+{
+  "snyk": "feature-flag-snyk",
+  "sast": "feature-flag-sast",
+  "dependency-scanning": "feature-flag-dependency-scanning",
+  "container-scanning": "feature-flag-container-scanning",
+  "check-jira": "feature-flag-check-jira",
+  "deploy-qa": "feature-flag-deploy-qa",
+  "deploy-stage": "feature-flag-deploy-stage",
+  "deploy-prod": "feature-flag-deploy-prod"
+}
